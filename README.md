@@ -12,6 +12,9 @@ After downloading the necessary files:
 - extract the SPM8
 - extract VBM8 and put it inside spm8\toolbox\
 - we need dcm2nii, thus copy/move it and its dependencies to the same directory
+- set Matlab path to add the SPM8 and VBM8
+- set Environment Variable to add the ANTs\bin folder
+- if you put the mricron in different folder, also include it
 
 Each process stage and configuration can be known by the file name:
 - 00 mricron : create NIFTI file and reorient the image into nearest orthogonal
@@ -23,3 +26,9 @@ Each process stage and configuration can be known by the file name:
 - 06 ANTs : calculate the deformation jacobian from old brain to new brain
 - 07 deformation jac : apply the deformation filed from 04 to the deformation jacobian 06
 - 08 ROI analysis : calculate the region of interest for its changes
+
+Container code is in: TBMAllSPM8.m
+- RUN the container script
+- select two folder containing:
+  - the first folder containing DICOM of the baseline
+  - the second folder containing DICOM of the coregister
