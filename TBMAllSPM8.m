@@ -24,13 +24,23 @@ my_035_3Dto4D(convert3D4Dinput);
 
 % Normalization
 normalizeinput = input30;
-input40 = my_04_normalize(normalizeinput);
+[input40, input41, input42] = my_04_normalize(normalizeinput);
 
 % Apply Deformation
 deformationinput = input40;
 input50 = my_05_deformation(deformationinput);
 
 % ANTs using synbatchmake_maskfile.m
+antinput = {input30; input31; input50};
+input60 = my_06_ants(antinput);
+
+% Apply deformation jacobian
+deformjacinput = {input41; input60};
+input70 = my_07_deformjac(deformjacinput);
+
+% ROI analysis
+roiinput = {input42; input70};
+my_08_ROI(roiinput);
 
 
 %--

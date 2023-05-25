@@ -1,7 +1,7 @@
-function [output] = my_04_normalize(myimagefiles)
+function [output1, output2, output3] = my_04_normalize(myimagefiles)
 %% check argument
 if nargin == 0
-    myimagefiles = spm_select(Inf,'image','Select image files');
+    myimagefiles = spm_select(Inf,'image','Select base rmcropped image files');
 end
 
 % List of open inputs
@@ -55,14 +55,34 @@ for i=1:size(myimagefiles,1)
     imagefile = deblank(myimagefiles(i,:));
     % Check for existence of "iy_rrmcropped*.nii" files
     directory = fileparts(imagefile);
-    iy_rrmcroppedFiles = checkFiles(directory, 'iy_rrmcropped*.nii');
 
+    iy_rrmcroppedFiles = checkFiles(directory, 'iy_rrmcropped*.nii');
     if isempty(iy_rrmcroppedFiles)
         fprintf('No "iy_rrmcropped*.nii" files found in %s.\n', directory);
     else
         fprintf('Found the following "iy_rrmcropped*.nii" file in %s:\n', directory);
         fprintf('%s\n', iy_rrmcroppedFiles(1).name);
         
-        output = fullfile(directory, iy_rrmcroppedFiles(1).name);
+        output1 = fullfile(directory, iy_rrmcroppedFiles(1).name);
+    end
+
+    y_rrmcroppedFiles = checkFiles(directory, 'y_rrmcropped*.nii');
+    if isempty(y_rrmcroppedFiles)
+        fprintf('No "y_rrmcropped*.nii" files found in %s.\n', directory);
+    else
+        fprintf('Found the following "y_rrmcropped*.nii" file in %s:\n', directory);
+        fprintf('%s\n', y_rrmcroppedFiles(1).name);
+        
+        output2 = fullfile(directory, y_rrmcroppedFiles(1).name);
+    end
+
+    m0wrp3Files = checkFiles(directory, 'm0wrp3*.nii');
+    if isempty(iy_rrmcroppedFiles)
+        fprintf('No "m0wrp3*.nii" files found in %s.\n', directory);
+    else
+        fprintf('Found the following "m0wrp3*.nii" file in %s:\n', directory);
+        fprintf('%s\n', m0wrp3Files(1).name);
+        
+        output3 = fullfile(directory, m0wrp3Files(1).name);
     end
 end 

@@ -27,7 +27,7 @@ end
 nrun = 1; % enter the number of runs here
 
 % Configuration for preprocessing
-matlabbatch{1}.spm.tools.vbm8.tools.defs2.field = {myimagefiles(1,:)};
+matlabbatch{1}.spm.tools.vbm8.tools.defs2.field = {imagefile};
 matlabbatch{1}.spm.tools.vbm8.tools.defs2.images = {{mask}};
 matlabbatch{1}.spm.tools.vbm8.tools.defs2.interp = 1;
 matlabbatch{1}.spm.tools.vbm8.tools.defs2.modulate = 0;
