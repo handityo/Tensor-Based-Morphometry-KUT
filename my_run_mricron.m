@@ -1,6 +1,9 @@
-function [output1, output2] = my_run_mricron()
+function [output1, output2] = my_run_mricron(dirs)
+%% check argument
+if nargin == 0
     % Use spm_select to get input directories
-    dirs = spm_select(2, 'dir', 'Select input directories');
+    dirs = spm_select(2, 'dir', 'Select input directories (baseline>coregister)');
+end
     
     % Check if two directories are selected
     if size(dirs, 1) ~= 2

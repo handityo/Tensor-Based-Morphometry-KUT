@@ -4,6 +4,7 @@ if nargin == 0
 end
 
 CSFcutoff = 0.5;
+roiname = {'ROI';'Lobes';'Total'};
 
 %csfimagefiles = deblank(myimagefiles(1,:));
 %jacimagefiles = myimagefiles(2,:);
@@ -21,9 +22,9 @@ for x=1:size(atlaslabelfiles)
     atlaslabelimage = spm_read_vols(vol_atlaslabel);
     labels = unique(atlaslabelimage);
     
-    fp_vol = fopen([outputdir '\labeledbrainvol_' num2str(x) '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
-    fp_jac = fopen([outputdir '\labeledbrainjac_' num2str(x) '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
-    fp_jac_shrinkonly = fopen([outputdir '\labeledbrainjac_shrinkonly_' num2str(x) '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
+    fp_vol = fopen([outputdir '\labeledbrainvol_' roiname{x} '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
+    fp_jac = fopen([outputdir '\labeledbrainjac_' roiname{x} '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
+    fp_jac_shrinkonly = fopen([outputdir '\labeledbrainjac_shrinkonly_' roiname{x} '_' datestr(now,'yyyymmdd_HHMMSS') '.txt'],'wt');
     
     fprintf(fp_vol,'imagefiles\t');
     fprintf(fp_jac,'Jacobianimagefiles\tCSFImagefiles\t');
