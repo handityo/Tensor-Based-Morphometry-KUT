@@ -23,3 +23,9 @@ Each process stage and configuration can be known by the file name:
 - 06 ANTs : calculate the deformation jacobian from old brain to new brain
 - 07 deformation jac : apply the deformation filed from 04 to the deformation jacobian 06
 - 08 ROI analysis : calculate the region of interest for its changes
+
+Container code is in: TBMAllSPM8.m
+- RUN the container script
+- select two folder containing:
+  - the first folder containing DICOM of the baseline
+  - the second folder containing DICOM of the coregister
