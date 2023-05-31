@@ -4,6 +4,11 @@ function TBMAllSPM8(myimagefiles)
 startTime = clock;
 
 %---
+if nargin == 0
+    % Use spm_select to get input directories
+    myimagefiles = spm_select(2, 'dir', 'Select input directories (baseline>coregister)');
+end
+
 
 %% Get Nifti image and reorient
 [input00, input01] = my_run_mricron(myimagefiles);

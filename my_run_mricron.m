@@ -10,7 +10,7 @@ end
         error('Please select exactly two input directories.');
     end
     
-    % Set the directory where "dcm2nii.exe" is located
+    %use Set the directory where "dcm2nii.exe" is located
     exeDir = '.\mricron-old\';
     
     % Set the arguments
