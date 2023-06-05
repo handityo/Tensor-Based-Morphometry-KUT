@@ -10,8 +10,8 @@ PIDinputdirs = spm_select(Inf, 'dir', 'Select input directories PID');
 for pid=1:size(PIDinputdirs)
     parentdir = PIDinputdirs(pid,:);
 
-    newdir2014 = dir(fullfile(parentdir, '2014_ID*'));
-    newdir2021 = dir(fullfile(parentdir, '2021_ID*'));
+    newdir2014 = dir(fullfile(parentdir, '2014*'));
+    newdir2021 = dir(fullfile(parentdir, '2022*'));
 
     inputdir2014 = fullfile(parentdir, newdir2014.name);
     inputdir2021 = fullfile(parentdir, newdir2021.name);

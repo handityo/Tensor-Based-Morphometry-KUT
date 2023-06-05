@@ -11,7 +11,7 @@ end
     end
     
     %use Set the directory where "dcm2nii.exe" is located
-    exeDir = '.\mricron-old\';
+    exeDir = 'C:\MATLAB\mricron\';
     
     % Set the arguments
     arg5 = deblank(dirs(1, :)); 
